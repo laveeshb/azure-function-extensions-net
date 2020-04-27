@@ -6,4 +6,4 @@
 
 - [Azure Key Vault](Azure.KeyVault)
 - [Azure Files](Azure.Files)
-- [Amazon Simple Queue Service](Amazon.SQS)
+- [Amazon Simple Queue Service (SQS)](Amazon.SQS)
