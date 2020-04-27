@@ -1,4 +1,4 @@
-# Azure key vault extension for Azure functions in .NET
+# Azure key vault extension
 
 - [NuGet Package](https://www.nuget.org/packages/AzureFunctions.Extension.KeyVault)
 - [Release Notes](https://github.com/laveeshb/azure-function-extensions-net/releases)

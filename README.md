@@ -2,7 +2,7 @@
 
 - [License](LICENSE)
 
-* This pack contains extensions for .NET based Azure Functions
+## This pack contains extensions for the following services
 
 - [Azure Key Vault](Azure.KeyVault)
 - [Azure Files](Azure.Files)

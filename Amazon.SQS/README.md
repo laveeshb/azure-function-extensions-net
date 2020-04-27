@@ -1,4 +1,4 @@
-# Amazon SQS extension for Azure functions in .NET
+# Amazon Simple Queue Service (SQS) extension
 
 - [NuGet Package](https://www.nuget.org/packages/AzureFunctions.Extension.SQS)
 - [Release Notes](https://github.com/laveeshb/azure-function-extensions-net/releases)
