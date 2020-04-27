@@ -3,7 +3,7 @@
 - [Homepage](.)
 - [NuGet Package](https://www.nuget.org/packages/AzureFunctions.Extension.KeyVault)
 - [Release Notes](https://github.com/laveeshb/azure-function-extensions-net/releases)
-- [License](LICENSE)
+- [License](..\LICENSE)
 
 This extension helps developers get secrets, keys and certificates from [Azure key vault](https://azure.microsoft.com/en-us/services/key-vault/) via bindings.
 
