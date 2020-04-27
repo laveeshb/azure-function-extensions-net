@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.KeyVault", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1A34A383-CCBF-400D-93E8-1BEE44F81E88}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E21B6416-88BE-4795-9EEB-055E0FC4F87A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{E21B6416-88BE-4795-9EEB-055E0FC4F87A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.KeyVault.Sample.v2", "tests\Extensions.KeyVault.Sample.v2\Extensions.KeyVault.Sample.v2.csproj", "{7059CE02-AE1B-492B-B689-BF084D7CD764}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.KeyVault.Sample.v2", "samples\Extensions.KeyVault.Sample.v2\Extensions.KeyVault.Sample.v2.csproj", "{7059CE02-AE1B-492B-B689-BF084D7CD764}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.KeyVault.Sample.v3", "tests\Extensions.KeyVault.Sample.v3\Extensions.KeyVault.Sample.v3.csproj", "{688DB4AC-BB0F-467E-A31D-7E3F83C74AE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.KeyVault.Sample.v3", "samples\Extensions.KeyVault.Sample.v3\Extensions.KeyVault.Sample.v3.csproj", "{688DB4AC-BB0F-467E-A31D-7E3F83C74AE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
