@@ -1,4 +1,4 @@
-# Azure Functions extension pack in .NET
+# Azure Functions extension pack for .NET
 
 - [License](LICENSE)
 
