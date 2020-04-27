@@ -16,6 +16,7 @@
     <PackageTags>Azure Functions bindings extension SQS</PackageTags>
     <PackageProjectUrl>https://github.com/laveeshb/azure-function-extensions-net/tree/master/Amazon.SQS</PackageProjectUrl>
     <RepositoryUrl>https://github.com/laveeshb/azure-function-extensions-net/tree/master/Amazon.SQS</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/laveeshb/azure-function-extensions-net/releases</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
