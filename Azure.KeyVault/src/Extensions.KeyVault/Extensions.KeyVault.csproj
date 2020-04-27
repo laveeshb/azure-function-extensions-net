@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>AzureFunctions.Extension.KeyVault</PackageId>
+    <Authors>Laveesh Bansal</Authors>
+    <Company />
+    <Product>Azure.Functions.Extension.KeyVault</Product>
+    <Description>Azure Key Vault extension for Azure Functions</Description>
+    <PackageProjectUrl>https://github.com/laveeshb/azure-functions-keyvault-extension-net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/laveeshb/azure-functions-keyvault-extension-net</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <AssemblyName>Azure.Functions.Extensions.KeyVault</AssemblyName>
+    <RootNamespace>Azure.Functions.Extensions.KeyVault</RootNamespace>
+    <Version>1.2.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Azure Functions bindings extension key vault</PackageTags>
+    <PackageReleaseNotes>https://github.com/laveeshb/azure-functions-keyvault-extension-net/releases</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.5" />
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.14" />
+    <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="5.2.6" />
+  </ItemGroup>
+
+</Project>
