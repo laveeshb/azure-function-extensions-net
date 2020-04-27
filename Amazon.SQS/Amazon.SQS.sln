@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.SQS", "src\Exten
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{38C33EBF-CEDA-4371-8863-B4F88B095AB0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8D172EAF-9579-4D7C-9FF9-259AA406294E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{8D172EAF-9579-4D7C-9FF9-259AA406294E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.SQS.Sample.v2", "tests\Extensions.SQS.Sample.v2\Extensions.SQS.Sample.v2.csproj", "{B418A06B-F9DE-48F1-957D-FD60CAF93484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.SQS.Sample.v2", "samples\Extensions.SQS.Sample.v2\Extensions.SQS.Sample.v2.csproj", "{B418A06B-F9DE-48F1-957D-FD60CAF93484}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.SQS.Sample.v3", "tests\Extensions.SQS.Sample.v3\Extensions.SQS.Sample.v3.csproj", "{3DE063E2-2E79-4823-BAFE-7E98AFE3A727}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.SQS.Sample.v3", "samples\Extensions.SQS.Sample.v3\Extensions.SQS.Sample.v3.csproj", "{3DE063E2-2E79-4823-BAFE-7E98AFE3A727}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
