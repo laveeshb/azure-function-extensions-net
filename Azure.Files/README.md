@@ -1,6 +1,5 @@
 # Azure files extension for Azure functions in .NET
 
-- [Homepage](.)
 - [NuGet Package](https://www.nuget.org/packages/AzureFunctions.Extension.AzureFiles)
 - [Release Notes](https://github.com/laveeshb/azure-function-extensions-net/releases)
 
