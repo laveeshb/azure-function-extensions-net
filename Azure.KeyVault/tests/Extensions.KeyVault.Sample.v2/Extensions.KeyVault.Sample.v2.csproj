@@ -8,7 +8,7 @@
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Extensions.KeyVault\Extensions.KeyVault.csproj" />
+    <ProjectReference Include="..\..\src\Extensions.KeyVault\Extensions.KeyVault.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
