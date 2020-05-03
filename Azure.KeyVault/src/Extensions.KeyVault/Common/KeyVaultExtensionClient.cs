@@ -40,7 +40,7 @@
                 case AuthenticationType.ClientCertificate:
                     return new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(this.GetAccessTokenWithClientCertificate));
 
-                case AuthenticationType.SystemManagedIdentity:
+                case AuthenticationType.ManagedIdentity:
                     return new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(new AzureServiceTokenProvider().KeyVaultTokenCallback));
 
                 default:
