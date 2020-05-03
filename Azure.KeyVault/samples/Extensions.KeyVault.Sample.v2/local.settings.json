@@ -9,7 +9,7 @@
     "ClientSecret": "",
     "EncodedClientCertificate": "",
 
-    "TestSecretName": "mysecret01",
+    "TestSecretName": "",
     "TestSecretVersion": "",
 
     "TestCertificateName": "",
