@@ -12,12 +12,21 @@
 
         public KeyVaultExtensionClient(KeyVaultPropertiesAttribute keyVaultProperties)
         {
-            if (!string.IsNullOrEmpty(keyVaultProperties.ClientSecret) && !string.IsNullOrEmpty(keyVaultProperties.EncodedClientCertificate))
+            this.KeyVaultProperties = keyVaultProperties;
+            this.ValidateAuthenticationParameters();
+        }
+
+        private void ValidateAuthenticationParameters()
+        {
+            if (this.KeyVaultProperties.AuthenticationType == AuthenticationType.ClientSecret && string.IsNullOrEmpty(this.KeyVaultProperties.ClientSecret))
             {
-                throw new InvalidOperationException("Binding has both client secret and certificate set. Please use exactly one type of secret.");
+                throw new InvalidOperationException("Binding has 'ClientSecret' type of authentication but no clientSecret value");
             }
 
-            this.KeyVaultProperties = keyVaultProperties;
+            if (this.KeyVaultProperties.AuthenticationType == AuthenticationType.ClientCertificate && string.IsNullOrEmpty(this.KeyVaultProperties.EncodedClientCertificate))
+            {
+                throw new InvalidOperationException("Binding has 'ClientCertificate' type of authentication but no base64 encoded client certificate value");
+            }
         }
 
         public KeyVaultClient GetKeyVaultClient()
@@ -47,9 +56,15 @@
 
         private async Task<string> GetAccessTokenWithClientCertificate(string authority, string resource, string scope)
         {
+            var clientCertificate = new X509Certificate2(rawData: Convert.FromBase64String(this.KeyVaultProperties.EncodedClientCertificate));
+            if (!clientCertificate.HasPrivateKey)
+            {
+                throw new InvalidOperationException("Client certificate does not have private key");
+            }
+
             var credential = new ClientAssertionCertificate(
                 clientId: this.KeyVaultProperties.ClientId,
-                certificate: new X509Certificate2(rawData: Convert.FromBase64String(this.KeyVaultProperties.EncodedClientCertificate)));
+                certificate: clientCertificate);
 
             var context = new AuthenticationContext(authority);
             var tokenResult = await context.AcquireTokenAsync(resource, credential);

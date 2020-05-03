@@ -13,7 +13,7 @@ namespace Azure.Functions.Extensions.KeyVault.Sample.V2
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest request,
             [KeyVaultSecret(
-                AuthenticationType = AuthenticationType.ClientSecret,
+                AuthenticationType = AuthenticationType.ClientCertificate,
                 VaultName = "%VaultName%",
                 ClientId = "%ClientId%",
                 EncodedClientCertificate = "%EncodedClientCertificate%",
