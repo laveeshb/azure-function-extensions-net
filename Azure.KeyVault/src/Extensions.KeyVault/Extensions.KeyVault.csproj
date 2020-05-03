@@ -8,15 +8,15 @@
     <Company />
     <Product>Azure.Functions.Extension.KeyVault</Product>
     <Description>Azure Key Vault extension for Azure Functions</Description>
-    <PackageProjectUrl>https://github.com/laveeshb/azure-functions-keyvault-extension-net</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/laveeshb/azure-functions-keyvault-extension-net</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/laveeshb/azure-function-extensions-net/tree/master/Azure.KeyVault</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/laveeshb/azure-function-extensions-net/tree/master/Azure.KeyVault</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
     <AssemblyName>Azure.Functions.Extensions.KeyVault</AssemblyName>
     <RootNamespace>Azure.Functions.Extensions.KeyVault</RootNamespace>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>Azure Functions bindings extension key vault</PackageTags>
-    <PackageReleaseNotes>https://github.com/laveeshb/azure-functions-keyvault-extension-net/releases</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/laveeshb/azure-function-extensions-net/releases</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
