@@ -21,3 +21,4 @@ This extension provides the following bindings:
 The bindings support the following authentication methods:
 * Azure AD application with client secret [Example](samples/Extensions.KeyVault.Sample.v2/Secrets/GetSecret.cs)
 * Azure AD application with client certificate [Example](samples/Extensions.KeyVault.Sample.v2/Secrets/GetSecretWithClientCertificate.cs)
+* System assigned managed identity [Example](samples/Extensions.KeyVault.Sample.v2/Secrets/GetSecretWithSystemIdentity.cs)
