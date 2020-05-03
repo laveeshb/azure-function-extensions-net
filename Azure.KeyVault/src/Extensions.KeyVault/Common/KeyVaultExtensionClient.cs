@@ -4,6 +4,7 @@
     using System.Security.Cryptography.X509Certificates;
     using System.Threading.Tasks;
     using Microsoft.Azure.KeyVault;
+    using Microsoft.Azure.Services.AppAuthentication;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
     public class KeyVaultExtensionClient
@@ -20,7 +21,7 @@
         {
             if (this.KeyVaultProperties.AuthenticationType == AuthenticationType.ClientSecret && string.IsNullOrEmpty(this.KeyVaultProperties.ClientSecret))
             {
-                throw new InvalidOperationException("Binding has 'ClientSecret' type of authentication but no clientSecret value");
+                throw new InvalidOperationException("Binding has 'ClientSecret' type of authentication but no 'clientSecret' value");
             }
 
             if (this.KeyVaultProperties.AuthenticationType == AuthenticationType.ClientCertificate && string.IsNullOrEmpty(this.KeyVaultProperties.EncodedClientCertificate))
@@ -31,16 +32,20 @@
 
         public KeyVaultClient GetKeyVaultClient()
         {
-            if (!string.IsNullOrEmpty(this.KeyVaultProperties.ClientSecret))
+            switch (this.KeyVaultProperties.AuthenticationType)
             {
-                return new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(this.GetAccessTokenWithClientSecret));
-            }
-            else if (!string.IsNullOrEmpty(this.KeyVaultProperties.EncodedClientCertificate))
-            {
-                return new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(this.GetAccessTokenWithClientCertificate));
-            }
+                case AuthenticationType.ClientSecret:
+                    return new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(this.GetAccessTokenWithClientSecret));
 
-            throw new InvalidOperationException("Unexpected secret type encountered");
+                case AuthenticationType.ClientCertificate:
+                    return new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(this.GetAccessTokenWithClientCertificate));
+
+                case AuthenticationType.SystemManagedIdentity:
+                    return new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(new AzureServiceTokenProvider().KeyVaultTokenCallback));
+
+                default:
+                    throw new InvalidOperationException("Unexpected secret type encountered");
+            }
         }
 
         private async Task<string> GetAccessTokenWithClientSecret(string authority, string resource, string scope)
