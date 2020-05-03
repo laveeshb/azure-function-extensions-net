@@ -16,5 +16,8 @@ namespace Azure.Functions.Extensions.KeyVault
 
         [AutoResolve]
         public string ClientSecret { get; set; }
+
+        [AutoResolve]
+        public string EncodedClientCertificate { get; set; }
     }
 }

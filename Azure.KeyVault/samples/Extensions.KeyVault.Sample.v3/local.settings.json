@@ -7,6 +7,7 @@
     "VaultName": "",
     "ClientId": "",
     "ClientSecret": "",
+    "EncodedClientCertificate": "",
 
     "TestSecretName": "",
     "TestSecretVersion": "",

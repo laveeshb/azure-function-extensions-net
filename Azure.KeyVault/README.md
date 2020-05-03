@@ -19,4 +19,5 @@ This extension provides the following bindings:
 | Get key with version | Gets the specified version of a key | [GetKeyVersion](samples/Extensions.KeyVault.Sample.v2/Keys/GetKeyVersion.cs) |
 
 The bindings support the following authentication methods:
-* Azure AD application with client secret
+* Azure AD application with client secret [Example](samples/Extensions.KeyVault.Sample.v2/Secrets/GetSecret.cs)
+* Azure AD application with client certificate [Example](samples/Extensions.KeyVault.Sample.v2/Secrets/GetSecretWithClientCertificate.cs)
