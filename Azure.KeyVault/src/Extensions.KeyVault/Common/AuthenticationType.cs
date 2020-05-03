@@ -12,5 +12,10 @@ namespace Azure.Functions.Extensions.KeyVault
         /// This type uses clientId and clientCertificate to get the auth token.
         /// </summary>
         ClientCertificate,
+
+        /// <summary>
+        /// This type uses clientId and clientCertificate to get the auth token.
+        /// </summary>
+        SystemManagedIdentity,
     }
 }
