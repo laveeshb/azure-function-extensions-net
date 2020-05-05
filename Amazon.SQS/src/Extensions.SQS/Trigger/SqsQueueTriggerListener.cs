@@ -1,4 +1,6 @@
 ﻿
+using Azure.Functions.Extensions.SQS.Commons;
+
 namespace Azure.Functions.Extensions.SQS
 {
     using System;
@@ -36,10 +38,7 @@ namespace Azure.Functions.Extensions.SQS
             this.SqsQueueOptions.Value.PollingInterval = this.SqsQueueOptions.Value.PollingInterval ?? TimeSpan.FromSeconds(5);
             this.SqsQueueOptions.Value.VisibilityTimeout = this.SqsQueueOptions.Value.VisibilityTimeout ?? TimeSpan.FromSeconds(5);
 
-            var sqsRegion = new Uri(this.TriggerParameters.QueueUrl).Host.Split('.').Skip(1).First();
-            this.AmazonSQSClient = new AmazonSQSClient(
-                credentials: new BasicAWSCredentials(accessKey: this.TriggerParameters.AWSKeyId, secretKey: this.TriggerParameters.AWSAccessKey),
-                region: RegionEndpoint.EnumerableAllRegions.Single(region => region.SystemName.Equals(sqsRegion, StringComparison.InvariantCultureIgnoreCase)));
+            this.AmazonSQSClient = AmazonSQSClientFactory.Build(triggerParameters);
         }
 
         public void Cancel()
