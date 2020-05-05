@@ -1,5 +1,5 @@
-﻿
-using Microsoft.Azure.WebJobs;
+﻿using Microsoft.Azure.WebJobs;
+using Azure.Functions.Extensions.SQS.Collector;
 
 namespace Azure.Functions.Extensions.SQS
 {
@@ -28,6 +28,7 @@ namespace Azure.Functions.Extensions.SQS
 
             var queueTriggerRule = context.AddBindingRule<SqsQueueTriggerAttribute>();
             queueTriggerRule.BindToTrigger(new SqsQueueTriggerBindingProvider(this.SqsQueueOptions, this.NameResolver));
+            queueTriggerRule.BindToCollector(attr => new SqsQueueAsyncCollector(attr));
         }
     }
 }
