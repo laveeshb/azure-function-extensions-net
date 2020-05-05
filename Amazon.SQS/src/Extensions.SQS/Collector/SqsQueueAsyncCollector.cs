@@ -12,28 +12,26 @@ using Microsoft.Azure.WebJobs;
 
 namespace Azure.Functions.Extensions.SQS.Collector
 {
-	public class SqsQueueAsyncCollector : IAsyncCollector<SqsMessage>
+	public class SqsQueueAsyncCollector : IAsyncCollector<SqsQueueMessage>
 	{
 		private AmazonSQSClient AmazonSQSClient { get; }
-
+		private SqsQueueTriggerAttribute TriggerParameters { get; }
+		
 		public SqsQueueAsyncCollector(SqsQueueTriggerAttribute triggerParameters)
 		{
+			this.TriggerParameters = triggerParameters;
 			this.AmazonSQSClient = AmazonSQSClientFactory.Build(triggerParameters);
 
 		}
-		public Task AddAsync(SqsMessage item, CancellationToken cancellationToken = new CancellationToken())
+		public async Task AddAsync(SqsQueueMessage item, CancellationToken cancellationToken = new CancellationToken())
 		{
-			throw new NotImplementedException();
+			await AmazonSQSClient.SendMessageAsync(this.TriggerParameters.QueueUrl, item.Body, cancellationToken);
 		}
 
 		public Task FlushAsync(CancellationToken cancellationToken = new CancellationToken())
 		{
-			throw new NotImplementedException();
+			// Batching not supported.
+			return Task.CompletedTask;
 		}
-	}
-
-	public class SqsMessage
-	{
-
 	}
 }
