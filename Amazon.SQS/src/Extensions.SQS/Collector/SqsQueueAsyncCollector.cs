@@ -25,7 +25,7 @@ namespace Azure.Functions.Extensions.SQS.Collector
 		}
 		public async Task AddAsync(SqsQueueMessage item, CancellationToken cancellationToken = new CancellationToken())
 		{
-			await AmazonSQSClient.SendMessageAsync(this.TriggerParameters.QueueUrl, item.Body, cancellationToken);
+			await AmazonSQSClient.SendMessageAsync(item.QueueUrl ?? this.TriggerParameters.QueueUrl, item.Body, cancellationToken);
 		}
 
 		public Task FlushAsync(CancellationToken cancellationToken = new CancellationToken())
