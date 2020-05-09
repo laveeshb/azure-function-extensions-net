@@ -11,7 +11,7 @@
     <RepositoryType>Github</RepositoryType>
     <AssemblyName>Azure.Functions.Extensions.SQS</AssemblyName>
     <RootNamespace>Azure.Functions.Extensions.SQS</RootNamespace>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>Azure Functions bindings extension SQS</PackageTags>
     <PackageProjectUrl>https://github.com/laveeshb/azure-function-extensions-net/tree/master/Amazon.SQS</PackageProjectUrl>
