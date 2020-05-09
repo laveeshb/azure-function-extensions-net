@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.Azure.WebJobs;
+
 namespace Azure.Functions.Extensions.SQS
 {
     using System;
@@ -9,11 +11,12 @@ namespace Azure.Functions.Extensions.SQS
     [Extension(name: "sqsQueue", configurationSection: "sqsQueue")]
     public class SqsExtensionProvider : IExtensionConfigProvider
     {
-        private IOptions<SqsQueueOptions> SqsQueueOptions { get; set; }
-
-        public SqsExtensionProvider(IOptions<SqsQueueOptions> sqsQueueOptions)
+	    private IOptions<SqsQueueOptions> SqsQueueOptions { get; set; }
+	    private INameResolver NameResolver { get; set; }
+        public SqsExtensionProvider(IOptions<SqsQueueOptions> sqsQueueOptions, INameResolver nameResolver)
         {
-            this.SqsQueueOptions = sqsQueueOptions;
+	        this.SqsQueueOptions = sqsQueueOptions;
+	        this.NameResolver = nameResolver;
         }
 
         public void Initialize(ExtensionConfigContext context)
@@ -24,7 +27,7 @@ namespace Azure.Functions.Extensions.SQS
             }
 
             var queueTriggerRule = context.AddBindingRule<SqsQueueTriggerAttribute>();
-            queueTriggerRule.BindToTrigger(new SqsQueueTriggerBindingProvider(this.SqsQueueOptions));
+            queueTriggerRule.BindToTrigger(new SqsQueueTriggerBindingProvider(this.SqsQueueOptions, this.NameResolver));
         }
     }
 }
