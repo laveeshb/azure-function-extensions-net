@@ -28,7 +28,8 @@ namespace Azure.Functions.Extensions.SQS
 
             var queueTriggerRule = context.AddBindingRule<SqsQueueTriggerAttribute>();
             queueTriggerRule.BindToTrigger(new SqsQueueTriggerBindingProvider(this.SqsQueueOptions, this.NameResolver));
-            queueTriggerRule.BindToCollector(attr => new SqsQueueAsyncCollector(attr));
+            var queueCollectorRule = context.AddBindingRule<SqsQueueOutAttribute>();
+            queueCollectorRule.BindToCollector(attr => new SqsQueueAsyncCollector(attr));
         }
     }
 }

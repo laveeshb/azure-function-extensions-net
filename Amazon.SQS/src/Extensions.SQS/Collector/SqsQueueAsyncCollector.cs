@@ -15,9 +15,9 @@ namespace Azure.Functions.Extensions.SQS.Collector
 	public class SqsQueueAsyncCollector : IAsyncCollector<SqsQueueMessage>
 	{
 		private AmazonSQSClient AmazonSQSClient { get; }
-		private SqsQueueTriggerAttribute TriggerParameters { get; }
+		private SqsQueueOutAttribute TriggerParameters { get; }
 		
-		public SqsQueueAsyncCollector(SqsQueueTriggerAttribute triggerParameters)
+		public SqsQueueAsyncCollector(SqsQueueOutAttribute triggerParameters)
 		{
 			this.TriggerParameters = triggerParameters;
 			this.AmazonSQSClient = AmazonSQSClientFactory.Build(triggerParameters);
