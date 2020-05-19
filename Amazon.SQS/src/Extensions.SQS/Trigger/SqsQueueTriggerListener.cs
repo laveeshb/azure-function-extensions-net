@@ -80,27 +80,31 @@ namespace Azure.Functions.Extensions.SQS
 
             foreach (var message in result.Messages)
             {
-                var triggerData = new TriggeredFunctionData
-                {
-                    ParentId = Guid.NewGuid(),
-                    TriggerValue = message.Body,
-                    TriggerDetails = new Dictionary<string, string>(),
-                };
-
-                var functionExecutionResult = await this.Executor.TryExecuteAsync(triggerData, CancellationToken.None);
-                if (functionExecutionResult.Succeeded)
-                {
-                    var deleteMessageRequest = new DeleteMessageRequest
-                    {
-                        QueueUrl = this.TriggerParameters.QueueUrl,
-                        ReceiptHandle = message.ReceiptHandle,
-                    };
-
-                    await this.AmazonSQSClient.DeleteMessageAsync(deleteMessageRequest);
-                }
+                await ProcessMessage(message);
             }
         }
 
+        private async Task ProcessMessage(Message message) 
+        {
+            var triggerData = new TriggeredFunctionData
+            {
+                ParentId = Guid.NewGuid(),
+                TriggerValue = message.Body,
+                TriggerDetails = new Dictionary<string, string>(),
+            };
+
+            var functionExecutionResult = await this.Executor.TryExecuteAsync(triggerData, CancellationToken.None);
+            if (functionExecutionResult.Succeeded)
+            {
+                var deleteMessageRequest = new DeleteMessageRequest
+                {
+                    QueueUrl = this.TriggerParameters.QueueUrl,
+                    ReceiptHandle = message.ReceiptHandle,
+                };
+
+                await this.AmazonSQSClient.DeleteMessageAsync(deleteMessageRequest);
+            }
+        }
         public Task StopAsync(CancellationToken cancellationToken)
         {
             this.Dispose();
