@@ -1,6 +1,4 @@
 ﻿
-using Azure.Functions.Extensions.SQS.Commons;
-
 namespace Azure.Functions.Extensions.SQS
 {
     using System;
@@ -8,8 +6,6 @@ namespace Azure.Functions.Extensions.SQS
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using Amazon;
-    using Amazon.Runtime;
     using Amazon.SQS;
     using Amazon.SQS.Model;
     using Microsoft.Azure.WebJobs.Host.Executors;

@@ -1,4 +1,4 @@
-﻿namespace Azure.Functions.Extensions.SQS.Collector
+﻿namespace Azure.Functions.Extensions.SQS
 {
 	public class SqsQueueMessage
 	{
