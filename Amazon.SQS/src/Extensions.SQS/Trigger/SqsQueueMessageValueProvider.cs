@@ -3,13 +3,14 @@ namespace Azure.Functions.Extensions.SQS
 {
     using System;
     using System.Threading.Tasks;
+    using Amazon.SQS.Model;
     using Microsoft.Azure.WebJobs.Host.Bindings;
 
     public class SqsQueueMessageValueProvider : IValueProvider
     {
         private object Value { get; set; }
 
-        public Type Type => typeof(string);
+        public Type Type => typeof(Message);
 
         public SqsQueueMessageValueProvider(object value)
         {

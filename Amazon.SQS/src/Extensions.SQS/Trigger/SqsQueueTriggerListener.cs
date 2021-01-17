@@ -81,7 +81,7 @@ namespace Azure.Functions.Extensions.SQS
             var triggerData = new TriggeredFunctionData
             {
                 ParentId = Guid.NewGuid(),
-                TriggerValue = message.Body,
+                TriggerValue = message,
                 TriggerDetails = new Dictionary<string, string>(),
             };
 

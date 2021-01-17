@@ -5,6 +5,7 @@ namespace Azure.Functions.Extensions.SQS
     using System.Collections.Generic;
     using System.Reflection;
     using System.Threading.Tasks;
+    using Amazon.SQS.Model;
     using Microsoft.Azure.WebJobs.Host.Bindings;
     using Microsoft.Azure.WebJobs.Host.Listeners;
     using Microsoft.Azure.WebJobs.Host.Protocols;
@@ -19,7 +20,7 @@ namespace Azure.Functions.Extensions.SQS
 
         private ParameterInfo ParameterInfo { get; set; }
 
-        public Type TriggerValueType => typeof(string);
+        public Type TriggerValueType => typeof(Message);
 
         public IReadOnlyDictionary<string, Type> BindingDataContract { get; } = new Dictionary<string, Type>();
 

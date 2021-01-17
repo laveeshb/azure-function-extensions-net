@@ -1,6 +1,7 @@
 
 namespace Azure.Functions.Extensions.SQS.Sample.V2
 {
+    using Amazon.SQS.Model;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Extensions.Logging;
 
@@ -11,10 +12,10 @@ namespace Azure.Functions.Extensions.SQS.Sample.V2
             [SqsQueueTrigger(
                 AWSKeyId = "",
                 AWSAccessKey = "",
-                QueueUrl = "")] string message,
+                QueueUrl = "")] Message message,
             ILogger log)
         {
-            log.LogInformation($"Function triggered with message '{message}'");
+            log.LogInformation($"Function triggered with message Id '{message.MessageId}' body '{message.Body}' receipt handle '{message.ReceiptHandle}' MD5 '{message.MD5OfBody}' attributes count '{message.MessageAttributes.Count}'");
         }
     }
 }
