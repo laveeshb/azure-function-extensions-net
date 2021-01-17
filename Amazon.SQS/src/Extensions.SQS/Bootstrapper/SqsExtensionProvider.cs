@@ -2,7 +2,7 @@
 namespace Azure.Functions.Extensions.SQS
 {
     using System;
-    using System.Text;  
+    using System.Text;
     using Amazon.SQS.Model;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Description;
@@ -12,14 +12,14 @@ namespace Azure.Functions.Extensions.SQS
     [Extension(name: "sqsQueue", configurationSection: "sqsQueue")]
     public class SqsExtensionProvider : IExtensionConfigProvider
     {
-	    private IOptions<SqsQueueOptions> SqsQueueOptions { get; set; }
+        private IOptions<SqsQueueOptions> SqsQueueOptions { get; set; }
 
-	    private INameResolver NameResolver { get; set; }
+        private INameResolver NameResolver { get; set; }
 
         public SqsExtensionProvider(IOptions<SqsQueueOptions> sqsQueueOptions, INameResolver nameResolver)
         {
-	        this.SqsQueueOptions = sqsQueueOptions;
-	        this.NameResolver = nameResolver;
+            this.SqsQueueOptions = sqsQueueOptions;
+            this.NameResolver = nameResolver;
         }
 
         public void Initialize(ExtensionConfigContext context)
@@ -47,19 +47,19 @@ namespace Azure.Functions.Extensions.SQS
 
         private static SendMessageRequest ConvertStringToSendMessageRequest(string body)
         {
-	        return new SendMessageRequest
-	        {
-                MessageBody = body
-	        };
+            return new SendMessageRequest
+            {
+                MessageBody = body,
+            };
         }
 
         private static SendMessageRequest ConvertSqsQueueMessageToSendMessageRequest(SqsQueueMessage sqsQueueMessage)
         {
-	        return new SendMessageRequest
-	        {
+            return new SendMessageRequest
+            {
                 QueueUrl =  sqsQueueMessage.QueueUrl,
-                MessageBody = sqsQueueMessage.Body
-	        };
+                MessageBody = sqsQueueMessage.Body,
+            };
         }
     }
 }

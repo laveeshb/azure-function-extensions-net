@@ -16,8 +16,8 @@ namespace Azure.Functions.Extensions.SQS
 
         public SqsQueueTriggerBindingProvider(IOptions<SqsQueueOptions> sqsQueueOptions, INameResolver nameResolver)
         {
-	        this.SqsQueueOptions = sqsQueueOptions;
-	        this.NameResolver = nameResolver;
+            this.SqsQueueOptions = sqsQueueOptions;
+            this.NameResolver = nameResolver;
         }
 
         public Task<ITriggerBinding> TryCreateAsync(TriggerBindingProviderContext context)
@@ -30,17 +30,17 @@ namespace Azure.Functions.Extensions.SQS
 
         private SqsQueueTriggerAttribute ResolveTriggerParameters(SqsQueueTriggerAttribute triggerAttribute)
         {
-	        return new SqsQueueTriggerAttribute
-	        {
-		        AWSKeyId = this.Resolve(triggerAttribute.AWSKeyId),
-		        AWSAccessKey = this.Resolve(triggerAttribute.AWSAccessKey),
-		        QueueUrl = this.Resolve(triggerAttribute.QueueUrl)
+            return new SqsQueueTriggerAttribute
+            {
+                AWSKeyId = this.Resolve(triggerAttribute.AWSKeyId),
+                AWSAccessKey = this.Resolve(triggerAttribute.AWSAccessKey),
+                QueueUrl = this.Resolve(triggerAttribute.QueueUrl)
             };
         }
 
         private string Resolve(string property)
         {
-	        return this.NameResolver.Resolve(property) ?? this.NameResolver.ResolveWholeString(property) ?? property;
+            return this.NameResolver.Resolve(property) ?? this.NameResolver.ResolveWholeString(property) ?? property;
         }
     }
 }

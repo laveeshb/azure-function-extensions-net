@@ -6,14 +6,14 @@ namespace Azure.Functions.Extensions.SQS
 
     [Binding]
     public class SqsQueueTriggerAttribute : Attribute
-	{
-		[AutoResolve]
-		public string AWSKeyId { get; set; }
+    {
+        [AutoResolve]
+        public string AWSKeyId { get; set; }
 
-		[AutoResolve]
-		public string AWSAccessKey { get; set; }
+        [AutoResolve]
+        public string AWSAccessKey { get; set; }
 
-		[AutoResolve]
-		public string QueueUrl { get; set; }
-	}
+        [AutoResolve]
+        public string QueueUrl { get; set; }
+    }
 }
