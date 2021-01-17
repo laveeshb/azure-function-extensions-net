@@ -73,10 +73,10 @@ namespace Azure.Functions.Extensions.SQS
 
             var result = await this.AmazonSQSClient.ReceiveMessageAsync(getMessageRequest);
             Console.WriteLine($"Invoked the queue trigger at '{DateTime.UtcNow} UTC'. Fetched messages count: '{result.Messages.Count}'.");
-            await Task.WhenAll(result.Messages.Select(ProcessMessage));
+            await Task.WhenAll(result.Messages.Select(message => this.ProcessMessage(message)));
         }
 
-        private async Task ProcessMessage(Message message) 
+        private async Task ProcessMessage(Message message)
         {
             var triggerData = new TriggeredFunctionData
             {
@@ -97,6 +97,7 @@ namespace Azure.Functions.Extensions.SQS
                 await this.AmazonSQSClient.DeleteMessageAsync(deleteMessageRequest);
             }
         }
+
         public Task StopAsync(CancellationToken cancellationToken)
         {
             this.Dispose();

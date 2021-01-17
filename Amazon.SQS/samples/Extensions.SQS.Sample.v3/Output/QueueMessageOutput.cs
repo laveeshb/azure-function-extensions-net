@@ -48,7 +48,7 @@ namespace Azure.Functions.Extensions.SQS.Sample.V3
         public static async Task QueueMultiMessageOutput(
             [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req,
             ILogger log,
-            [SqsQueueOut(QueueUrl = "%AWS_QUEUE_URL%", AWSAccessKey = "%AWS_ACCESS_KEY%", AWSKeyId = "%AWS_KEY_ID%")] IAsyncCollector<SqsQueueMessage>  messageWriter)
+            [SqsQueueOut(QueueUrl = "%AWS_QUEUE_URL%", AWSAccessKey = "%AWS_ACCESS_KEY%", AWSKeyId = "%AWS_KEY_ID%")] IAsyncCollector<SqsQueueMessage> messageWriter)
         {
             var message = req.Query["message"];
             var outMessages = new [] { 1, 2, 3 }.Select(index => new SqsQueueMessage
