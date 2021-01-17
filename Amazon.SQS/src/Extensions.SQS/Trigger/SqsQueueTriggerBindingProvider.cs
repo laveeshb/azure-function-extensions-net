@@ -34,7 +34,7 @@ namespace Azure.Functions.Extensions.SQS
             {
                 AWSKeyId = this.Resolve(triggerAttribute.AWSKeyId),
                 AWSAccessKey = this.Resolve(triggerAttribute.AWSAccessKey),
-                QueueUrl = this.Resolve(triggerAttribute.QueueUrl)
+                QueueUrl = this.Resolve(triggerAttribute.QueueUrl),
             };
         }
 
