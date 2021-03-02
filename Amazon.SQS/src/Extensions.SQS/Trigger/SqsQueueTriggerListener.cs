@@ -69,8 +69,8 @@ namespace Azure.Functions.Extensions.SQS
                 QueueUrl = this.TriggerParameters.QueueUrl,
                 MaxNumberOfMessages = this.SqsQueueOptions.Value.MaxNumberOfMessages.Value,
                 VisibilityTimeout = (int)this.SqsQueueOptions.Value.VisibilityTimeout.Value.TotalSeconds,
-                MessageAttributeNames = this.TriggerParameters.MessageAttributeNames.Split(',').ToList(),
-                AttributeNames = this.TriggerParameters.AttributeNames.Split(',').ToList()
+                MessageAttributeNames = this.TriggerParameters.MessageAttributeNames?.Split(',').ToList(),
+                AttributeNames = this.TriggerParameters.AttributeNames?.Split(',').ToList()
             };
 
             var result = await this.AmazonSQSClient.ReceiveMessageAsync(getMessageRequest);
