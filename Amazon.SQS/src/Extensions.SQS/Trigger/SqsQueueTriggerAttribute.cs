@@ -2,6 +2,7 @@
 namespace Azure.Functions.Extensions.SQS
 {
     using System;
+    using System.Collections.Generic;
     using Microsoft.Azure.WebJobs.Description;
 
     [Binding]
@@ -15,5 +16,11 @@ namespace Azure.Functions.Extensions.SQS
 
         [AutoResolve]
         public string QueueUrl { get; set; }
+
+        [AutoResolve]
+        public string MessageAttributeNames { get; set; }
+
+        [AutoResolve]
+        public string AttributeNames { get; set; }
     }
 }
