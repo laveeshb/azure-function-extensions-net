@@ -12,6 +12,7 @@ namespace Azure.Functions.Extensions.SQS.Sample.V3
             [SqsQueueTrigger(
                 AWSKeyId = "",
                 AWSAccessKey = "",
+                AWSSessionToken = "",
                 QueueUrl = "")] Message message,
             ILogger log)
         {
