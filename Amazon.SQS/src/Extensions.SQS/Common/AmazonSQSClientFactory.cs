@@ -37,6 +37,11 @@ namespace Azure.Functions.Extensions.SQS
                     region.SystemName.Equals(sqsRegion, StringComparison.InvariantCultureIgnoreCase))
             };
 
+            if (awsSessionToken == null)
+            {
+                return new AmazonSQSClient(awsKeyId, awsAccessKey, sqsConfig);
+            }
+
             return new AmazonSQSClient(awsKeyId, awsAccessKey, awsSessionToken, sqsConfig);
         }
 
