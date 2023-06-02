@@ -14,6 +14,9 @@ namespace Azure.Functions.Extensions.SQS
         public string AWSAccessKey { get; set; }
 
         [AutoResolve]
+        public string AWSSessionToken { get; set; }
+
+        [AutoResolve]
         public string QueueUrl { get; set; }
     }
 }

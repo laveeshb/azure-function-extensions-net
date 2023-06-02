@@ -16,5 +16,7 @@ namespace Azure.Functions.Extensions.SQS
 
         [AutoResolve]
         public string QueueUrl { get; set; }
+        [AutoResolve]
+        public string AWSSessionToken { get; set; }
     }
 }
