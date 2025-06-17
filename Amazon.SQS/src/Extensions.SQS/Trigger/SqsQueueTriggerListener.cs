@@ -97,10 +97,10 @@ namespace Azure.Functions.Extensions.SQS
 
                 await AmazonSQSClient.DeleteMessageAsync(deleteMessageRequest);
             }
-            else if (bool.TryParse(TriggerParameters.ExponentialRetry, out var retry) && retry)
+            else if (bool.TryParse(TriggerParameters.ExponentialRetry, out var exponentialRetry) && exponentialRetry)
             {
-                int.TryParse(message.Attributes["ApproximateReceiveCount"], out int parsedCount);
-                await AmazonSQSClient.ChangeMessageVisibilityAsync(TriggerParameters.QueueUrl, message.ReceiptHandle, parsedCount * 60);
+                int.TryParse(message.Attributes["ApproximateReceiveCount"], out int approximateReceiveCount);
+                await AmazonSQSClient.ChangeMessageVisibilityAsync(TriggerParameters.QueueUrl, message.ReceiptHandle, approximateReceiveCount * 60);
             } 
             
         }
