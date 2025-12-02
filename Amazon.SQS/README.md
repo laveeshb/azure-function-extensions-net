@@ -1,7 +1,13 @@
 # Amazon Simple Queue Service (SQS) extension
 
+> **⚠️ MOVED**: This extension has been moved to a dedicated repository for multi-language support.
+> 
+> **New repository**: https://github.com/laveeshb/azure-functions-sqs-extension
+> 
+> Please report new issues and contributions to the new repository.
+
 - [NuGet Package](https://www.nuget.org/packages/AzureFunctions.Extension.SQS)
-- [Release Notes](https://github.com/laveeshb/azure-function-extensions-net/releases)
+- [Release Notes](https://github.com/laveeshb/azure-functions-sqs-extension/releases)
 
 This extension helps developers trigger Azure Functions based on [Amazon SQS queues](https://aws.amazon.com/sqs/).
 

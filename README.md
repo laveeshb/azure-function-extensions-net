@@ -6,4 +6,4 @@
 
 - [Azure Key Vault](Azure.KeyVault)
 - [Azure Files](Azure.Files)
-- [Amazon Simple Queue Service (SQS)](Amazon.SQS)
+- ~~[Amazon Simple Queue Service (SQS)](Amazon.SQS)~~ **→ Moved to [azure-functions-sqs-extension](https://github.com/laveeshb/azure-functions-sqs-extension)**
